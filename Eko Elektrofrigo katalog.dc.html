@@ -73,7 +73,30 @@
   @keyframes efButtonPulse{0%,100%{transform:scale(1); box-shadow:0 12px 28px -12px rgba(0,0,0,0.6);}50%{transform:scale(1.04); box-shadow:0 18px 38px -14px rgba(0,0,0,0.7);}}
   .ef-promo-button{animation:efButtonPulse 2.2s ease-in-out infinite;}
   .ef-promo-spin{animation:efBorderSpin 6s linear infinite;}
-  @media (prefers-reduced-motion:reduce){ .ef-promo-wrap,.ef-promo-spin,.ef-promo-button{animation:none!important;}}
+  /* 3D Effect for promo image */
+  .ef-promo-3d-wrapper{
+    perspective: 1200px;
+  }
+  .ef-promo-3d-inner{
+    transform-style: preserve-3d;
+    transform: rotateX(3deg) rotateY(-2deg);
+    transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;
+    box-shadow:
+      0 40px 80px -20px rgba(0,0,0,0.9),
+      0 20px 40px -15px rgba(0,0,0,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .ef-promo-3d-inner:hover{
+    transform: rotateX(4deg) rotateY(3deg) translateZ(8px);
+    box-shadow:
+      0 60px 120px -30px rgba(0,0,0,0.95),
+      0 30px 60px -20px rgba(0,0,0,0.7),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+  .ef-promo-3d-inner img{
+    transform: translateZ(10px);
+  }
+  @media (prefers-reduced-motion:reduce){ .ef-promo-wrap,.ef-promo-spin,.ef-promo-button,.ef-promo-3d-inner{animation:none!important;} .ef-promo-3d-inner{transform:none!important; box-shadow:none!important;}}
   .ef-scroll::-webkit-scrollbar{width:10px;height:10px;}
   .ef-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.14);border-radius:8px;}
   .ef-card{transition:transform .24s cubic-bezier(.2,.7,.2,1), border-color .24s ease, box-shadow .24s ease;}
@@ -195,12 +218,12 @@
   </div>
 
   <!-- PROMO: Freoni za auto-klime -->
-  <div style="max-width:1240px; margin:0 auto; padding:52px var(--px) 0;">
+  <div class="ef-promo-3d-wrapper" style="max-width:1240px; margin:0 auto; padding:52px var(--px) 0;">
     <div class="ef-promo-wrap" style="position:relative; border-radius:22px; padding:4px; overflow:hidden; isolation:isolate; background:#0a0e20;">
       <div class="ef-promo-spin" style="position:absolute; z-index:0; top:50%; left:50%; width:170%; aspect-ratio:1; transform:translate(-50%,-50%); background:conic-gradient(from 0deg, transparent 0deg, #3fa85f 42deg, #7ee0ff 92deg, transparent 150deg, transparent 222deg, #3fa85f 262deg, #7ee0ff 312deg, transparent 360deg); pointer-events:none;"></div>
-      <button onClick="{{ showAutoAc }}" class="ef-btn" style="position:relative; z-index:1; display:block; width:100%; padding:0; border:none; border-radius:18px; overflow:hidden; background:#0c1230; cursor:pointer;">
+      <button onClick="{{ showAutoAc }}" class="ef-btn ef-promo-3d-inner" style="position:relative; z-index:1; display:block; width:100%; padding:0; border:none; border-radius:18px; overflow:hidden; background:#0c1230; cursor:pointer;">
         <img src="assets/promo-auto-klime.jpg" alt="Freoni za auto-klime — R134a i R1234yf" style="display:block; width:100%; height:auto;">
-        <span class="ef-promo-button" style="position:absolute; bottom:16px; right:16px; display:inline-flex; align-items:center; gap:8px; font-family:'Archivo',sans-serif; font-weight:800; font-size:14.5px; padding:12px 20px; border-radius:12px; background:var(--accent,#3fa85f); color:#06210f; box-shadow:0 12px 28px -12px rgba(0,0,0,0.6);">Prikaži freone za auto-klime →</span>
+        <span class="ef-promo-button" style="position:absolute; bottom:16px; right:16px; display:inline-flex; align-items:center; gap:8px; font-family:'Archivo',sans-serif; font-weight:800; font-size:14.5px; padding:12px 20px; border-radius:12px; background:var(--accent,#3fa85f); color:#06210f; box-shadow:0 12px 28px -12px rgba(0,0,0,0.6); transform:translateZ(15px);">Prikaži freone za auto-klime →</span>
       </button>
     </div>
   </div>
