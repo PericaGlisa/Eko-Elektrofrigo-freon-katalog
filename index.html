@@ -71,7 +71,13 @@
   @keyframes efGlow{0%,100%{box-shadow:0 0 22px -4px rgba(63,168,95,0.45), 0 0 60px -12px rgba(126,224,255,0.3);}50%{box-shadow:0 0 36px 0 rgba(63,168,95,0.72), 0 0 96px -6px rgba(126,224,255,0.5);}}
   .ef-promo-wrap{animation:efGlow 3.6s ease-in-out infinite;}
   @keyframes efButtonPulse{0%,100%{transform:scale(1); box-shadow:0 12px 28px -12px rgba(0,0,0,0.6);}50%{transform:scale(1.04); box-shadow:0 18px 38px -14px rgba(0,0,0,0.7);}}
-  .ef-promo-button{animation:efButtonPulse 2.2s ease-in-out infinite;background:rgba(63,168,95,0.85)!important; backdrop-filter: blur(10px)!important; border:1px solid rgba(143,224,170,0.5)!important;}
+  .ef-promo-button{
+    animation:efButtonPulse 2.2s ease-in-out infinite;
+    background-color:rgba(63,168,95,0.65)!important;
+    background-image:none!important;
+    backdrop-filter: blur(10px)!important;
+    border:1px solid rgba(143,224,170,0.5)!important;
+  }
   .ef-promo-spin{animation:efBorderSpin 6s linear infinite;}
   /* 3D Effect for promo image */
   .ef-promo-3d-wrapper{
